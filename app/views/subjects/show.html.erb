@@ -1,3 +1,9 @@
+<% if !flash.empty? %>
+<div class='notice'>
+	<p><%= flash[:notice] %></p>
+</div>
+<% end %>
+
 <%= link_to('Back to List', subjects_path, :class => 'back-link') %>
 
 <div class='subjects show'>

@@ -1,0 +1,55 @@
+<% if !flash.empty? %>
+	<div>
+		<p><%= flash[:notice] %></p>
+	</div>
+<% end %>
+
+
+<%= link_to('<< Back to List', sections_path, :class => 'back-link') %>
+
+<div class='sections edit'>
+	<h2>Edit sections</h2>
+
+	<%= form_for(@section, :url => section_path(@section), :method => 'post') do |f| %>
+
+		<table summary="section form fields">
+			<tr>
+				<th>Name</th>
+				<td><%= f.text_field(:name) %></td>
+			</tr>
+				<th>Position</th>
+				<td><%= f.text_field(:position) %></td>
+			</tr>			
+			<tr>
+				<th>Visible</th>
+				<td><%= f.text_field(:visible) %></td>
+			</tr>
+			<tr>
+				<th>Content Type</th>
+				<td><%= f.text_field(:content_type) %></td>
+			</tr>
+			<tr>
+				<tr>
+				<th>Content</th>
+				<td><%= f.text_field(:content) %></td>
+			</tr>
+			<tr>
+		</table>
+
+		<div class='form-buttons'>
+			<%= f.submit('Create Section') %>
+		</div>
+	<% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

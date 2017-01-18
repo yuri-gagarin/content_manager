@@ -25,8 +25,10 @@ class SubjectsController < ApplicationController
     if @subject.save
       #redirect to index if successful
       redirect_to(subjects_path)
+      flash[:notice] = 'Subject created successfully'
     else
       render(:new)
+      flash[:notice] = 'Error. Try again!'
     end
 
   end
@@ -43,8 +45,10 @@ class SubjectsController < ApplicationController
 
     if @subject.update_attributes(subject_params)
       redirect_to(subject_path(@subject))
+      flash[:notice] = 'Subject updated successfully'
     else
       render(:edit)
+      flash[:notice] = 'Error. Try again!'
     end
 
   end
@@ -61,6 +65,7 @@ class SubjectsController < ApplicationController
 
     if @subject.destroy
       redirect_to(subjects_path)
+      flash[:notice] = "Subject '#{@subject.name}' destroyed!"
     else
       render(:delete)
     end
